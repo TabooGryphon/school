@@ -6,6 +6,8 @@ const Student = new mongoose.Schema({
   lastName: {type:String, trim:true, default:''},
   grade: {type:String, trim:true, default:''},
   school: [{type: Schema.Types.ObjectId, ref: 'School'}],
+  address: {type:String, trim:true, default:''},
+  phone: {type:Number, trim:true, default:''}
 })
 
 module.exports = mongoose.model('Student', Student);
