@@ -3,24 +3,17 @@ const turbo = require('turbo360')({site_id: process.env.TURBO_APP_ID})
 const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
 const router = vertex.router()
 
-/*  This is a sample API route. */
+const student_controller = require('../controllers/studentcontroller');
+const school_controller = require('../controllers/schoolcontroller');
+const ryan_controller = require('../controllers/ryanController');
 
-router.get('/:resource', (req, res) => {
-	res.json({
-		confirmation: 'success',
-		resource: req.params.resource,
-		query: req.query // from the url query string
-	})
-})
+// API Routes //
+router.get('/', ryan_controller.ryan);
 
-router.get('/:resource/:id', (req, res) => {
-	res.json({
-		confirmation: 'success',
-		resource: req.params.resource,
-		id: req.params.id,
-		query: req.query // from the url query string
-	})
-})
+
+// Student Routes //
+router.get('/student', student_controller.student_form);
+
 
 
 

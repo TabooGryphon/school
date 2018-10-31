@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const School = new mongoose.Schems({
+const School = new Schema({
   name: {type:String, trim:true, default:''},
   city: {type:String, trim:true, default:''},
   state: {type:String, trim:true, default:''},
@@ -9,4 +9,4 @@ const School = new mongoose.Schems({
   phone: {type:Number, trim:true, default:''}
 })
 
-module.exports = mongoose.model('Student', Student);
+module.exports = mongoose.model('School', School);

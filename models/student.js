@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Student = new mongoose.Schema({
+const Student = new Schema({
   firstName: {type:String, trim:true, default:''},
   lastName: {type:String, trim:true, default:''},
   grade: {type:String, trim:true, default:''},
   school: [{type: Schema.Types.ObjectId, ref: 'School'}],
-  address: {type:String, trim:true, default:''},
+  age: {type:Number, trim:true, default:''},
   phone: {type:Number, trim:true, default:''}
 })
 
