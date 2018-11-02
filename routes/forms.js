@@ -5,14 +5,16 @@ const router = vertex.router()
 
 const student_controller = require('../controllers/studentcontroller');
 const school_controller = require('../controllers/schoolcontroller');
-const ryan_controller = require('../controllers/ryanController');
+const forms_controller = require('../controllers/formsController');
 
 // API Routes //
-router.get('/', ryan_controller.ryan);
+router.get('/', forms_controller.index);
 
 
 // Student Routes //
-router.get('/student', student_controller.student_form);
+router.get('/student', student_controller.student_list);
+
+router.get('/student/help', student_controller.student_help);
 
 
 

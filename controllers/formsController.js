@@ -5,7 +5,12 @@ var Student = require('../models/student');
 var async = require('async');
 var School = require('../models/school');
 
-exports.ryan = function(req, res) {
-    const form_title = 'Ryan'
-    res.render('ryan', {title: form_title})
+exports.index = function(req, res) {
+    const form_title = 'Forms'
+    res.render('index', {title: form_title})
+}
+
+exports.forms_update_get = function (req, res) {
+
+    
 }

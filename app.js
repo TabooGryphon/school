@@ -6,7 +6,7 @@ const config = {
 	views: 'views', 		// Set views directory 
 	static: 'public', 		// Set static assets directory
 	db: { 					// Database configuration. Remember to set env variables in .env file: MONGODB_URI, PROD_MONGODB_URI
-		url: 'mongodb://localhost/school',
+		url: 'mongodb://localhost/students',
 		//url: (process.env.TURBO_ENV == 'dev') ? process.env.MONGODB_URI : process.env.PROD_MONGODB_URI,
 		type: 'mongo',
 		onError: (err) => {
@@ -23,11 +23,10 @@ const app = vertex.app(config) // initialize app with config options
 
 // import routes
 const index = require('./routes/index')
-const api = require('./routes/api')
+const forms = require('./routes/forms')
 
 // set routes
 app.use('/', index)
-app.use('/api', api) // sample API Routes
-
+app.use('/forms', forms)
 
 module.exports = app
