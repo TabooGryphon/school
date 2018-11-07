@@ -6,7 +6,7 @@ const School = new Schema({
   city: {type:String, trim:true, default:''},
   state: {type:String, trim:true, default:''},
   address: {type:String, trim:true, default:''},
-  phone: {type:Number, trim:true, default:''}
+  phone: {type:String, trim:true, default:''}
 })
 
 module.exports = mongoose.model('School', School);

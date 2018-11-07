@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
+
 {{>head}}
 
 <body class="container">
-
-	<div class="row">
-
-		<div class="col-md-6 col-md-offset-3" style="text-align:center;margin-bottom:48px">
-			<h1>{{title}}</h1>
-			<hr />
-			<div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px">
-			<form action="/api/student" method="post">
-				<input type="text" name="firstName" placeholder={{res.firstName}}><br>
-				<input type="text" name="lastName" placeholder={{res.lastName}}><br>
-				<input type="text" name="grade" placeholder={{res.grade}}><br>
-				<input type="number" name="age" placeholder={{res.age}}><br>
-			</form>
+  <div class="row justify-content-center">
+    <div class="col-md-4" style="margin-bottom:48px">
+			<h1 class="row justify-content-center">{{title}}</h1><br>
+        <div class="row justify-content-center">
+          {{>form}}
+        </div>
 		</div>
 	</div>
 
