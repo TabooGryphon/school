@@ -4,16 +4,26 @@
 {{>head}}
 
 <body class="container">
+<<<<<<< HEAD
   <div class="row justify-content-center">
     <div class="col-md-4" style="margin-bottom:48px">
 			<h1 class="row justify-content-center">{{title}}</h1><br>
         <div class="row justify-content-center">
           {{>form}}
         </div>
+=======
+	<div class="header">
+		<div class="col-md-6 col-md-offset-3" style="text-align:center;margin-bottom:48px">
+			<h1>{{title}}</h1>	
+>>>>>>> 0c68a0795c99fbe73f7b3fe395276f67618124c2
 		</div>
 	</div>
 
-
+{{>nav}}
+<div>
+	<p><h2>Student</h2>{{students.student.firstName}}</p><br>
+	<p><h2>Help</h2>{{help}}</p>
+</div>
   <!-- Turbo library imports: jQuery, Turbo CDN, sample app.js.
   NOTE: These should be minified in a build script -->
   <script type="text/javascript" src="/js/jquery.js"></script>
