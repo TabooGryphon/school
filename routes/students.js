@@ -7,11 +7,9 @@ const student_controller = require('../controllers/studentcontroller');
 const school_controller = require('../controllers/schoolcontroller');
 const forms_controller = require('../controllers/formsController');
 
-// API Routes //
-router.get('/', forms_controller.index);
-
 
 // Student Routes //
+
 router.get('/student', student_controller.student_list);
 
 router.get('/student/help', student_controller.student_help);

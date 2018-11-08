@@ -1,16 +1,14 @@
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
+var async = require('async');
 
 var Student = require('../models/student');
 var async = require('async');
 var School = require('../models/school');
 
-exports.index = function(req, res) {
-    const form_title = 'Forms'
-    res.render('index', {title: form_title})
-}
+// Main Page
+exports.main = function(req, res, next) {
+  var header = 'Welcome'
 
-exports.forms_update_get = function (req, res) {
-
-    
+  res.render('index', {title: header})
 }
