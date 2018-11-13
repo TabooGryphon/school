@@ -9,4 +9,25 @@ const School = new Schema({
   phone: {type:String, trim:true, default:''}
 })
 
+// Virtual for School's location
+School
+.virtual('location')
+.get(function (){
+  return this.city+ ', ' + this.state;
+});
+
+// Virtual for School's update url
+School
+.virtual('urlUpdate')
+.get(function (){
+  return '/schools/' + this._id + '/update';
+});
+
+// Virtual for School's delete url
+School
+.virtual('urlDelete')
+.get(function (){
+  return '/schools/' + this._id + '/delete';
+});
+
 module.exports = mongoose.model('School', School);

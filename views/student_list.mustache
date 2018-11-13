@@ -4,20 +4,20 @@
 {{>head}}
 
 <body class="container">
-{{>nav}}
+  {{>nav}}
+  <br><br>
+  <h1>{{title}}</h1>
 
-  <div class="row justify-content-center">
-    <div class="col-md-4" style="margin-bottom:48px">
-			<h1 class="row justify-content-center">{{title}}</h1><br>
-        <div class="row justify-content-center">
-          {{>form}}
-        </div>
-		</div>
-	</div>
-<div>
-	<p><h2>Student</h2></p><br>
-	<p><h2>Help</h2></p>
-</div>
+  <div>
+    <ul>
+      {{#student}}
+      <li>{{properName}}&nbsp;-&nbsp;{{school.name}}</li>
+      {{/student}}
+    </ul>
+  </div>
+
+
+
 
   <!-- Turbo library imports: jQuery, Turbo CDN, sample app.js.
   NOTE: These should be minified in a build script -->

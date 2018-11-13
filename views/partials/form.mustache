@@ -1,23 +1,23 @@
 <div class="col-auto">
 	<div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px;">
-		<form action="/api/student" method="post">
+		<form action="/students/:id/update" method="post">
 			<div class="row-12 text-right">
-				First Name:      <input type="text" name="firstName" placeholder="First Name"><br>
+				First Name:      <input type="text" name="firstName" value="{{student.firstName}}"><br>
 			</div>
 			<div class="row-12 text-right">
-				Last Name:      <input type="text" name="lastName" placeholder="Last Name"><br>
+				Last Name:      <input type="text" name="lastName" value="{{student.lastName}}"><br>
 			</div>
 			<div class="row-12 text-right">
-				Grade:      <input type="text" name="grade" placeholder="Grade"><br>
+				Grade:      <input type="text" name="grade" value="{{student.grade}}"><br>
 			</div>
 			<div class="row-12 text-right">
-				School:      <input type="text" name="school" placeholder="School"><br>
+				School:      <input type="text" name="school" value="{{student.school.name}}"><br>
 			</div>
 			<div class="row-12 text-right">
-				Age:      <input type="number" name="age" placeholder=0><br>
+				Age:      <input type="number" name="age" value="{{student.age}}"><br>
 			</div>
 			<div class="row-12 text-right">
-				Phone Number:      <input type="text" name="phone" placeholder = "000-000-0000">
+				Phone Number:      <input type="text" name="phone" value="{{student.phone}}">
 			</div>
 		</form>
 	</div>
