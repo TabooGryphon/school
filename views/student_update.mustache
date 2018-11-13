@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+{{>head}}
+
+<body class="container">
+{{>nav}}
+
+  <div class="row justify-content-center">
+    <div class="col-md-6" style="margin-bottom:48px">
+			<h1 class="row justify-content-center">Update Information for</h1>
+      <h1 class="row justify-content-center">{{title}}</h1><br>
+        <div class="row justify-content-center">
+          <div class="col-auto">
+	          <div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px;">
+		          <form action="/students/:id/update" method="post">
+			          <div class="row-12 text-right">
+				          <label>First Name:</label>&nbsp&nbsp<input type="text" name="firstName" value="{{student.firstName}}"><br>
+			          </div>
+			          <div class="row-12 text-right">
+				          <label>Last Name:</label>&nbsp&nbsp<input type="text" name="lastName" value="{{student.lastName}}"><br>
+			          </div>
+			          <div class="row-12 text-right">
+				          <label>Grade:</label>&nbsp&nbsp<input type="text" name="grade" value="{{student.grade}}"><br>
+			          </div>
+			          <div class="row-12 text-right">
+				          <label>School:</label>&nbsp&nbsp<select name="school">
+                  {{#schools}}
+                    <option value="{{name}}">{{name}}</option>
+                  {{/schools}}
+                </select>
+			          </div>
+			          <div class="row-12 text-right">
+				          <label>Age:</label>&nbsp&nbsp<input type="number" name="age" value="{{student.age}}"><br>
+                </div>
+			          <div class="row-12 text-right">
+				          <label>Phone Number:</label>&nbsp&nbsp<input type="text" name="phone" value="{{student.phone}}"><br>
+			          </div><br>
+                  <input type="submit" value="Update">
+              </form>
+	          </div>
+          </div>
+        </div>
+		</div>
+	</div>
+
+
+  <!-- Turbo library imports: jQuery, Turbo CDN, sample app.js.
+  NOTE: These should be minified in a build script -->
+  <script type="text/javascript" src="/js/jquery.js"></script>
+
+  <!-- For file uploading. Remove if file upload not necessry -->
+  <script type="text/javascript" src="/js/dropzone.js"></script> 
+
+  <!-- Turbo CDN. Better to use CDN than to store locally. -->
+  <script type="text/javascript" src="https://cdn.turbo360-dev.com/dist/turbo.min.js"></script>
+
+  <!-- Your app specific code -->
+  <script type="text/javascript" src="/js/app.js"></script>
+</body>
+</html>

@@ -8,7 +8,6 @@ var School = require('../models/school');
 
 // Main Page
 exports.main = function(req, res, next) {
-  var header = 'Welcome'
-
+  var header = 'Welcome';
   res.render('index', {title: header})
 }

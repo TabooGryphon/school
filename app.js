@@ -22,12 +22,12 @@ const app = vertex.app(config) // initialize app with config options
 
 
 // import routes
-const index = require('./routes/index')
-const schools = require('./routes/schools')
-const students = require('./routes/students')
+const indexRouter = require('./routes/index');
+const schoolsRouter = require('./routes/schools');
+const studentsRouter = require('./routes/students');
 
 // set routes
-app.use('/', index)
-app.use('/schools', schools)
-app.use('/students', students)
-module.exports = app
+app.use('/', indexRouter);
+app.use('/schools', schoolsRouter);
+app.use('/students', studentsRouter);
+module.exports = app;
