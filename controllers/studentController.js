@@ -154,8 +154,7 @@ exports.student_create_post = [
 			age: req.body.age,
 			phone: req.body.phone
 		})
-		console.log(create_student);
-
+		
 		Student.create(create_student, function(err, thestudent){
 			if(err){
 				return next(err)

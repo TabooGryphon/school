@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const School = new Schema({
-  name: {type:String, trim:true, default:''},
+  name: {type:String, trim:true, required:true, default:''},
   city: {type:String, trim:true, default:''},
   state: {type:String, trim:true, default:''},
   address: {type:String, trim:true, default:''},

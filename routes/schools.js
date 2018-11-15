@@ -7,9 +7,17 @@ const school_controller = require('../controllers/schoolController');
 
 router.get('/', school_controller.schools_list);
 
+router.get('/create', school_controller.school_create_get);
+
+router.post('/create', school_controller.school_create_post);
+
 router.get('/:id/update', school_controller.school_update_get);
 
 router.post('/:id/update', school_controller.school_update_post);
+
+router.get('/:id/delete', school_controller.school_delete_get);
+
+router.post('/:id/delete', school_controller.school_delete_post);
 
 router.get('/:id', school_controller.school_detail);
 

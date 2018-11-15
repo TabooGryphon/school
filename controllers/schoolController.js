@@ -84,3 +84,66 @@ exports.school_update_post = [
 		 }
   }
 ]
+
+exports.school_create_get = function (req, res, next){
+	res.render('school_create', {title: 'Create School'})
+}
+
+exports.school_create_post = [
+
+	body('name', 'Name must not be empty.').isLength({ min: 1 }).trim(),
+	body('address', 'Address must not be empty.').isLength({ min: 1 }).trim(),
+	body('city', 'City must not be empty.').isLength({ min: 1 }).trim(),
+	body('state', 'State must not be empty').isLength({ min: 1 }).trim(),
+	body('phone', 'Phone Number must not be empty').isLength({ min: 1 }).trim(),
+
+	sanitizeBody('name').trim().escape(),
+	sanitizeBody('address').trim().escape(),
+	sanitizeBody('city').trim().escape(),
+	sanitizeBody('state').trim().escape(),
+	sanitizeBody('phone').trim().escape(),
+
+	(req, res, next) => {
+
+		const errors = validationResult(req);
+
+		var school_create = new School(
+			{
+				name: req.body.name,
+				address: req.body.address,
+				city: req.body.city,
+				state: req.body.state,
+				phone: req.body.phone
+			}
+		)
+
+		School.create(school_create, function(err, theschool){
+			if(err){
+				return next(err);
+			}
+			res.redirect(theschool.url);
+		})
+	}
+]
+
+exports.school_delete_get = function(req, res, next){
+
+	School.findById(req.params.id)
+	.exec(function (err, theschool){
+		if(err){
+			return next(err);
+		}
+		res.render('school_delete', {title: 'Delete School', school: theschool});
+	})
+}
+
+exports.school_delete_post = function (req, res, next){
+	
+	School.findByIdAndDelete(req.params.id)
+	.exec(function(err, theschool){
+		if(err){
+			return next(err);
+		}
+		res.redirect('/schools');
+	})
+}
