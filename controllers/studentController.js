@@ -6,7 +6,7 @@ const async = require('async');
 const School = require('../models/school');
 
 exports.student= function(req, res, next){
-    var header = 'Students';
+    let header = 'Students';
     res.render('index', {title: header});
 }
 
@@ -52,7 +52,7 @@ exports.student_update_get = function(req, res, next){
         if (err){
             return next(err)
         }
-    res.render('student_update', {title: update_student.properName, student: update_student, schools: school_list})
+		res.render('student_update', {title: update_student.properName, student: update_student, schools: school_list})
     })
 }
 
@@ -67,38 +67,100 @@ exports.student_update_post = [
 	body('phone', 'Phone Number must not be empty').isLength({ min: 1 }).trim(),
 
 	// Sanitize fields.
-	//sanitizeBody('firstName').trim().escape(),
+	sanitizeBody('firstName').trim().escape(),
 	sanitizeBody('lastName').trim().escape(),
 	sanitizeBody('grade').trim().escape(),
 	sanitizeBody('age').trim().escape(),
 	sanitizeBody('phone').trim().escape(),
 
-	
-	School.find({name: req.body.school})
-	.exec(function (err, s_u){
+
+	function updateStudent(req, res, next){
+
+		const errors = validationResult(req);
+
+		var student_update =  new Student({
+					firstName: req.body.firstName,
+					lastName: req.body.lastName,
+					grade: req.body.grade,
+					school: req.body.school,
+					age: req.body.age,
+					phone: req.body.phone,
+				 	_id: req.params.id
+				})
+
+		Student.findOneAndUpdate({_id: req.params.id}, student_update, function(err, thestudent){
+			if (err){
+				return next(err)
+			} else {
+				res.redirect(thestudent.url);
+				}
+		})
+	}
+// End of Student update post
+]
+
+exports.student_delete_get = function(req, res, next){
+	Student.findById(req.params.id)
+	.populate('school')
+	.then(function(student){
+		res.render('student_delete', {student, title:'Delete Student'});
+	})
+}
+
+exports.student_delete_post = function(req, res, next){
+	Student.findByIdAndDelete(req.params.id, function(callback){
+		res.redirect("/students");
+	})
+}
+
+exports.student_create_get = function(req, res, next){
+	let header = 'Create Student';
+	School.find({})
+	.sort({name: 'asc'})
+	.exec(function(err, list_schools){
 		if(err){
 			return next(err)
 		}
-		var ryan = s_u;
-		(req, res, next) =>{
-			student_update = new Student({
-			 firstName: req.body.firstName,
-			 lastName: req.body.lastName,
-			 grade: req.body.grade,
-			 school: ryan._id,
-			 age: req.body.age,
-			 phone: req.body.phone,
-			 _id: req.params.id
-			})
-			Student.findByIdAndUpdate(req.params.id, student_update, {}, function(err, thestudent){
-				if(err){
-					return next(err)
-				};
-				res.redirect(thestudent.url)
-			})
-		}
+		res.render('student_create',{title: header, schools: list_schools});
 	})
-		
-// End of update post
-]
+}
 
+exports.student_create_post = [
+
+	// Validate fields.
+	body('firstName', 'First name must not be empty.').isLength({ min: 1 }).trim(),
+	body('lastName', 'Last name must not be empty.').isLength({ min: 1 }).trim(),
+	body('grade', 'Grade must not be empty.').isLength({ min: 1 }).trim(),
+	body('school', 'School must not be empty').isLength({ min: 1 }).trim(),
+	body('age', 'Age must not be empty').isLength({ min: 1 }).trim(),
+	body('phone', 'Phone Number must not be empty').isLength({ min: 1 }).trim(),
+	
+	// Sanitize fields.
+	sanitizeBody('firstName').trim().escape(),
+	sanitizeBody('lastName').trim().escape(),
+	sanitizeBody('grade').trim().escape(),
+	sanitizeBody('age').trim().escape(),
+	sanitizeBody('phone').trim().escape(),
+	
+	(req, res, next) => {
+
+		const errors = validationResult(req);
+
+		var create_student = new Student({
+			lastName: req.body.lastName,
+			firstName: req.body.firstName,
+			grade: req.body.grade,
+			school: req.body.school,
+			age: req.body.age,
+			phone: req.body.phone
+		})
+		console.log(create_student);
+
+		Student.create(create_student, function(err, thestudent){
+			if(err){
+				return next(err)
+			}
+			res.redirect(thestudent.url);
+		})
+	}
+]

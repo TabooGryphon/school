@@ -16,6 +16,13 @@ School
   return this.city+ ', ' + this.state;
 });
 
+// Virtual for School's url
+School
+.virtual('url')
+.get(function (){
+  return '/schools/' + this._id;
+});
+
 // Virtual for School's update url
 School
 .virtual('urlUpdate')

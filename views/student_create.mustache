@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
 {{>head}}
@@ -8,35 +8,34 @@
 
   <div class="row justify-content-center">
     <div class="col-md-6" style="margin-bottom:48px">
-			<h1 class="row justify-content-center">Update Information for</h1>
       <h1 class="row justify-content-center">{{title}}</h1><br>
         <div class="row justify-content-center">
           <div class="col-auto">
 	          <div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px;">
 		          <form action="" method="post">
 			          <div class="row-12 text-right">
-				          <label>First Name:</label>&nbsp&nbsp<input type="text" name="firstName" value="{{student.firstName}}"><br>
+				          <label>First Name:</label>&nbsp&nbsp<input type="text" name="firstName"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>Last Name:</label>&nbsp&nbsp<input type="text" name="lastName" value="{{student.lastName}}"><br>
+				          <label>Last Name:</label>&nbsp&nbsp<input type="text" name="lastName"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>Grade:</label>&nbsp&nbsp<input type="text" name="grade" value="{{student.grade}}"><br>
+				          <label>Grade:</label>&nbsp&nbsp<input type="text" name="grade"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>School:</label>&nbsp&nbsp<select name="school" default="{{student.school.name}}">
+				          <label>School:</label>&nbsp&nbsp<select name="school">
                   {{#schools}}
                     <option value="{{_id}}">{{name}}</option>
                   {{/schools}}
                 </select>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>Age:</label>&nbsp&nbsp<input type="number" name="age" value="{{student.age}}"><br>
+				          <label>Age:</label>&nbsp&nbsp<input type="number" name="age"><br>
                 </div>
 			          <div class="row-12 text-right">
-				          <label>Phone Number:</label>&nbsp&nbsp<input type="text" name="phone" value="{{student.phone}}"><br>
+				          <label>Phone Number:</label>&nbsp&nbsp<input type="text" name="phone"><br>
 			          </div><br>
-                  <input type="submit" value="Update">
+                  <input type="submit" value="Create">
               </form>
 	          </div>
           </div>

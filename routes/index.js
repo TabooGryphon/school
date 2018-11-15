@@ -9,4 +9,6 @@ const school_controller = require('../controllers/schoolcontroller');
 
 router.get('/', index_controller.main);
 
+router.get('/create', index_controller.create);
+
 module.exports = router

@@ -11,3 +11,9 @@ exports.main = function(req, res, next) {
   var header = 'Welcome';
   res.render('index', {title: header})
 }
+
+// Choose which create
+exports.create = function(req, res, next){
+  var header = "Create";
+  res.render('create', {title: header});
+}

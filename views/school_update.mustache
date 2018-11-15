@@ -4,9 +4,9 @@
 {{>head}}
 
 <body class="container">
-{{>nav}}
-
-  <div class="row justify-content-center">
+  {{>nav}}
+  <br><br>
+<div class="row justify-content-center">
     <div class="col-md-6" style="margin-bottom:48px">
 			<h1 class="row justify-content-center">Update Information for</h1>
       <h1 class="row justify-content-center">{{title}}</h1><br>
@@ -15,27 +15,20 @@
 	          <div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px;">
 		          <form action="" method="post">
 			          <div class="row-12 text-right">
-				          <label>First Name:</label>&nbsp&nbsp<input type="text" name="firstName" value="{{student.firstName}}"><br>
+				          <label>Name:</label>&nbsp&nbsp<input type="text" name="name" value="{{school.name}}"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>Last Name:</label>&nbsp&nbsp<input type="text" name="lastName" value="{{student.lastName}}"><br>
+				          <label>Address:</label>&nbsp&nbsp<input type="text" name="address" value="{{school.address}}"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>Grade:</label>&nbsp&nbsp<input type="text" name="grade" value="{{student.grade}}"><br>
+				          <label>City:</label>&nbsp&nbsp<input type="text" name="city" value="{{school.city}}"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>School:</label>&nbsp&nbsp<select name="school" default="{{student.school.name}}">
-                  {{#schools}}
-                    <option value="{{_id}}">{{name}}</option>
-                  {{/schools}}
-                </select>
+				          <label>State:</label>&nbsp&nbsp<input type="text" name="state" value="{{school.state}}"><br>
 			          </div>
 			          <div class="row-12 text-right">
-				          <label>Age:</label>&nbsp&nbsp<input type="number" name="age" value="{{student.age}}"><br>
+				          <label>Phone Number:</label>&nbsp&nbsp<input type="text" name="phone" value="{{school.phone}}"><br>
                 </div>
-			          <div class="row-12 text-right">
-				          <label>Phone Number:</label>&nbsp&nbsp<input type="text" name="phone" value="{{student.phone}}"><br>
-			          </div><br>
                   <input type="submit" value="Update">
               </form>
 	          </div>
@@ -43,6 +36,7 @@
         </div>
 		</div>
 	</div>
+
 
 
   <!-- Turbo library imports: jQuery, Turbo CDN, sample app.js.
