@@ -13,23 +13,14 @@
           <div class="col-auto">
 	          <div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px;">
 		          <form action="" method="post">
-			          <div class="row-12 text-right">
-				          <label>Name:</label>&nbsp&nbsp<input type="text" name="name" value="{{school.name}}"><br>
-			          </div>
-			          <div class="row-12 text-right">
-				          <label>Address:</label>&nbsp&nbsp<input type="text" name="address" value="{{school.address}}"><br>
-			          </div>
-			          <div class="row-12 text-right">
-				          <label>City:</label>&nbsp&nbsp<input type="text" name="city" value="{{school.city}}"><br>
-			          </div>
-			          <div class="row-12 text-right">
-				          <label>State:</label>&nbsp&nbsp<input type="text" name="state" value="{{school.state}}"><br>
-                </div>
-			          <div class="row-12 text-right">
-				          <label>Phone Number:</label>&nbsp&nbsp<input type="text" name="phone" value="{{school.phone}}"><br>
-                </div>
-                  <input type="submit" value="Delete">
-              </form>
+                <ul class="col text-left" style="list-style-type: none;">
+				            <li><h2>{{school.name}}</h2></li>
+                    <li>{{school.address}}</li>
+                    <li>{{school.location}}</li>
+                    <li>{{school.phone}}</li>
+                </ul>
+			          <button type="submit">Delete</button>
+		          </form>
 	          </div>
           </div>
         </div>
